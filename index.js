@@ -93,13 +93,11 @@ app.post('/api/persons', (req, res) => {
 
     persons = persons.concat(person)
     res.json(person)
-    console.log(person)
-    console.log(persons)
 })
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
-
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
